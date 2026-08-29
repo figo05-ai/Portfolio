@@ -13,6 +13,7 @@ export interface AdminTeamMember {
   linkedin?: string | null;
   github?: string | null;
   bio: string | null;
+  skills?: string[];
   image_url: string | null;
   is_active: boolean;
   order: number;

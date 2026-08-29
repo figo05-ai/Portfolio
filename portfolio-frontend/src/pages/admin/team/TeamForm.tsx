@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
+import { useForm, useFieldArray } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { useAdminTeamMember, useCreateTeamMember, useUpdateTeamMember } from '@/features/team/api/admin';
@@ -12,7 +12,7 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowLeft, Loader2, Save } from 'lucide-react';
+import { ArrowLeft, Loader2, Save, Plus, Trash2 } from 'lucide-react';
 
 const teamMemberSchema = z.object({
   name: z.string().min(2, 'Name is required'),
@@ -23,6 +23,7 @@ const teamMemberSchema = z.object({
   github: z.string().optional().or(z.literal('')),
   bio: z.string().optional(),
   department: z.enum(['backend', 'devops', 'pentesting', 'none']).default('none'),
+  skills: z.array(z.object({ value: z.string() })).optional(),
   image_url: z.string().optional().or(z.literal('')),
   is_active: z.boolean().default(true),
   order: z.number().int().default(0),
@@ -50,10 +51,16 @@ export default function TeamForm() {
       github: '',
       department: 'none',
       bio: '',
+      skills: [{ value: '' }],
       image_url: '',
       is_active: true,
       order: 0,
     },
+  });
+
+  const { fields, append, remove } = useFieldArray({
+    control: form.control,
+    name: "skills"
   });
 
   useEffect(() => {
@@ -67,6 +74,7 @@ export default function TeamForm() {
         github: response.data.github || '',
         department: response.data.department || 'none',
         bio: response.data.bio || '',
+        skills: response.data.skills?.length ? response.data.skills.map(s => ({ value: s })) : [{ value: '' }],
         image_url: response.data.image_url || '',
         is_active: response.data.is_active,
         order: response.data.order,
@@ -78,10 +86,15 @@ export default function TeamForm() {
 
   const onSubmit = async (data: TeamMemberFormValues) => {
     try {
+      const payload = {
+        ...data,
+        skills: data.skills?.map(s => s.value).filter(Boolean) || [],
+      };
+
       if (isEditing) {
-        await updateMutation.mutateAsync({ id: id as string, data });
+        await updateMutation.mutateAsync({ id: id as string, data: payload });
       } else {
-        await createMutation.mutateAsync(data);
+        await createMutation.mutateAsync(payload);
       }
       navigate('/admin/team');
     } catch (error: any) {
@@ -201,6 +214,37 @@ export default function TeamForm() {
               {form.formState.errors.image_url && (
                 <p className="text-sm text-destructive">{form.formState.errors.image_url.message}</p>
               )}
+            </div>
+
+            <div className="space-y-4 pt-4 border-t border-border/40">
+              <Label>Skills & Technologies</Label>
+              {fields.map((field, index) => (
+                <div key={field.id} className="flex items-center gap-2">
+                  <Input 
+                    placeholder="e.g. React.js, Node.js, Python"
+                    {...form.register(`skills.${index}.value` as const)}
+                    disabled={isSaving}
+                  />
+                  <Button 
+                    type="button" 
+                    variant="ghost" 
+                    size="icon" 
+                    onClick={() => remove(index)}
+                    disabled={isSaving}
+                  >
+                    <Trash2 className="w-4 h-4 text-muted-foreground hover:text-destructive" />
+                  </Button>
+                </div>
+              ))}
+              <Button 
+                type="button" 
+                variant="outline" 
+                size="sm" 
+                onClick={() => append({ value: '' })}
+                disabled={isSaving}
+              >
+                <Plus className="w-4 h-4 mr-2" /> Add Skill
+              </Button>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
