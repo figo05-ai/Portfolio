@@ -15,7 +15,7 @@ export const useSettings = () => {
         return {
           site_name: 'Synapse',
           site_tagline: 'Full Stack Developers & Designers',
-          contact_email: 'hello@synapse.com',
+          contact_email: 'info@saynapse.com',
           contact_phone: '+1 (555) 000-0000',
           contact_location: 'Alexandria, Egypt',
           seo_default_description: 'A specialized trio of developers combining deep expertise across the entire stack to build products that perform.',

@@ -14,7 +14,7 @@ export default function Home() {
       <SEO 
         title="Home" 
         description="Premium digital products and engineering solutions." 
-        url="https://yourdomain.com/"
+        url="https://saynapse.com/"
       />
       <Helmet>
         <script type="application/ld+json">
@@ -23,11 +23,11 @@ export default function Home() {
               "@context": "https://schema.org",
               "@type": "Organization",
               "name": "Synapse",
-              "url": "https://yourdomain.com/",
-              "logo": "https://yourdomain.com/logo.png",
+              "url": "https://saynapse.com/",
+              "logo": "https://saynapse.com/logo.png",
               "contactPoint": {
                 "@type": "ContactPoint",
-                "email": "hello@yourdomain.com",
+                "email": "hello@saynapse.com",
                 "contactType": "customer service"
               }
             }

@@ -7,7 +7,7 @@ export default function TeamIndex() {
       <SEO 
         title="Our Team" 
         description="Meet the experts behind our premium digital products." 
-        url="https://yourdomain.com/team"
+        url="https://saynapse.com/team"
       />
       
       {/* Header */}

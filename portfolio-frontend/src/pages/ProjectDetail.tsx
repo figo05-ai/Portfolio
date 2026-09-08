@@ -38,7 +38,7 @@ export default function ProjectDetail() {
         title={title} 
         description={desc.substring(0, 160)}
         image={imageUrl || undefined}
-        url={`https://yourdomain.com/projects/${project.slug}`}
+        url={`https://saynapse.com/projects/${project.slug}`}
         type="article"
       />
       

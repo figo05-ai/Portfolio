@@ -34,7 +34,7 @@ export default function TeamMember() {
         title={`${member.name} - ${member.role}`} 
         description={member.bio?.substring(0, 160) || `Profile of ${member.name}, ${member.role}`}
         image={member.image_url || undefined}
-        url={`https://yourdomain.com/team/${member.slug}`}
+        url={`https://saynapse.com/team/${member.slug}`}
         type="profile"
       />
       

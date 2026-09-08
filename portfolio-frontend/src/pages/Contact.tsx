@@ -119,7 +119,7 @@ export default function Contact() {
         ]} 
       />
       <div className="relative z-10 flex flex-col min-h-screen">
-        <SEO title="Start a Project" description="Contact our team to discuss your next digital product." url="https://yourdomain.com/contact" />
+        <SEO title="Start a Project" description="Contact our team to discuss your next digital product." url="https://saynapse.com/contact" />
         
         <section className="py-12 md:py-20">
           <div className="container px-4 max-w-3xl mx-auto">
@@ -478,7 +478,7 @@ export default function Contact() {
 
           <div className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-muted-foreground relative z-10 flex-wrap">
             <span className="font-medium text-foreground w-full sm:w-auto text-center">Or reach out directly:</span>
-            <a href="mailto:hello@yourdomain.com" className="hover:text-primary transition-colors flex items-center gap-2">
+            <a href="mailto:hello@saynapse.com" className="hover:text-primary transition-colors flex items-center gap-2">
               <Mail className="w-4 h-4" />
               Email Us
             </a>

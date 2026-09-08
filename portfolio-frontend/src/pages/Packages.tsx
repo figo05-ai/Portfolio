@@ -25,7 +25,7 @@ const Packages: React.FC = () => {
       <SEO 
         title="Engineering Packages" 
         description="Structured solutions for projects of all sizes. Built, deployed, and tested by our expert team." 
-        url="https://yourdomain.com/packages"
+        url="https://saynapse.com/packages"
         type="website"
       />
       
