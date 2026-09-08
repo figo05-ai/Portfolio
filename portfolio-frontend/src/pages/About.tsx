@@ -10,7 +10,7 @@ const About: React.FC = () => {
       <SEO 
         title="About Us" 
         description="We are a highly capable engineering unit combining Full-Stack Development, DevOps, and Pentesting to build production-ready, secure web products." 
-        url="https://saynapse.com/about"
+        url="https://saynaps.com/about"
         type="website"
       />
       

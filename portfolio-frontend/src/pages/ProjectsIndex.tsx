@@ -30,7 +30,7 @@ export default function ProjectsIndex() {
       <SEO 
         title="Our Work" 
         description="Explore our portfolio of successful digital products and engineering solutions." 
-        url="https://saynapse.com/projects"
+        url="https://saynaps.com/projects"
       />
       
       {/* Header */}
