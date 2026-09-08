@@ -27,7 +27,7 @@ export default function Home() {
               "logo": "https://saynaps.com/logo.png",
               "contactPoint": {
                 "@type": "ContactPoint",
-                "email": "hello@saynaps.com",
+                "email": "info@saynaps.com",
                 "contactType": "customer service"
               }
             }

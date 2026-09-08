@@ -478,7 +478,7 @@ export default function Contact() {
 
           <div className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-muted-foreground relative z-10 flex-wrap">
             <span className="font-medium text-foreground w-full sm:w-auto text-center">Or reach out directly:</span>
-            <a href="mailto:hello@saynaps.com" className="hover:text-primary transition-colors flex items-center gap-2">
+            <a href="mailto:info@saynaps.com" className="hover:text-primary transition-colors flex items-center gap-2">
               <Mail className="w-4 h-4" />
               Email Us
             </a>
